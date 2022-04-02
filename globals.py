@@ -13,7 +13,6 @@ def runMeasurements(sensor):
 
     while True:
         temp = sensor.readTempC()
-        internal = sensor.readInternalC()
         print('Thermocouple 1 Temperature: {0:0.3F}*C '.format(temp, celsiusToFahrenheit(temp)))
         sleep(1.0)
         i+=1
