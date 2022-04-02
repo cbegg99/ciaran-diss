@@ -24,17 +24,8 @@
 #import logging
 #logging.basicConfig(level=logging.DEBUG)
 
-import time
-
-import Adafruit_GPIO.SPI as SPI
 import Adafruit_MAX31855.MAX31855 as MAX31855
-import csv
-
-
-# Define a function to convert celsius to fahrenheit.
-def c_to_f(c):
-        return c * 9.0 / 5.0 + 32.0
-
+from globals import runMeasurements
 
 # Uncomment one of the blocks of code below to configure your Pi or BBB to use
 # software or hardware SPI.
@@ -45,24 +36,5 @@ CS  = 19
 DO  = 26
 sensor = MAX31855.MAX31855(CLK, CS, DO)
 
-i=0
-
-# Loop printing measurements every second.
-print('Press Ctrl-C to quit.')
-while True:
-    temp = sensor.readTempC()
-    internal = sensor.readInternalC()
-    print('Thermocouple 2 Temperature: {0:0.3F}*C '.format(temp, c_to_f(temp)))
-    time.sleep(1.0)
-    i=i+1
-    import os
-    import time 
-    from time import sleep
-    from datetime import datetime
-
-    file = open("/home/pi/Ciaran/data_files/test2.csv", "a")
-    seconds=time.time()
-    file.write(str(seconds)+","+str(temp)+"\n")
-    file.close()
-    
+runMeasurements(sensor)
     
