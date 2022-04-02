@@ -14,9 +14,6 @@ file_path2 = "/home/pi/Ciaran/data_files/test2.csv"
 # Function to run the infinite while loop 
 i=0
 
-
-print('Press Ctrl-C to quit.')
-
 # Loop printing measurements every __ seconds.
 while True:
     temp = sensor.readTempC()
