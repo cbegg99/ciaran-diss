@@ -4,7 +4,7 @@ from matplotlib import style
 style.use('fivethirtyeight')
 
 fig = plt.figure()
-# This stuff never changes - no need to run this every time animate() is called
+# Label Axis and Title
 plt.xlabel('Time (s)')
 plt.ylabel('Temperature (°C)')
 plt.title('Temperature Against Time\nJournal Bearing Rig')
@@ -18,12 +18,12 @@ def animate():
     updateValues('/home/pi/Ciaran/data_files/test1.csv', x1, y1)
     updateValues('/home/pi/Ciaran/data_files/test2.csv', x2, y2)
 
-    # Why is this here?
+    # Define Legend
     ax1.clear()
     ax1.plot(x1, y1, label='Thermocouple 1')
     ax1.plot(x2, y2, label='Thermocouple 2')
 
-def updateValues(path, xAxis, yAxis): ## RENAME THIS TO A MORE ACCURATE FUNCTION NAME - I DON't KNOW CONTEXT ENOUGH
+def updateValues(path, xAxis, yAxis):
     graph_data1 = open(path, 'r').read()
     lines = graph_data1.split('\n')
 
