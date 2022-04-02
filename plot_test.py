@@ -1,9 +1,13 @@
+# Import modules
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from matplotlib import style
+
+# Determine Graphing Style
 style.use('fivethirtyeight')
 
 fig = plt.figure()
+
 # Label Axis and Title
 plt.xlabel('Time (s)')
 plt.ylabel('Temperature (°C)')
@@ -12,12 +16,14 @@ plt.legend()
 
 ax1 = fig.add_subplot(1,1,1)
 
+# Animate function
 def animate():
     x1 = []
     y1 = []
     x2 = []
     y2 = []
 
+    # Read data files
     updateValues('/home/pi/Ciaran/data_files/test1.csv', x1, y1)
     updateValues('/home/pi/Ciaran/data_files/test2.csv', x2, y2)
 
@@ -27,8 +33,8 @@ def animate():
     ax1.plot(x2, y2, label='Thermocouple 2')
 
 def updateValues(path, xAxis, yAxis):
-    graph_data1 = open(path, 'r').read()
-    lines = graph_data1.split('\n')
+    graph_data = open(path, 'r').read()
+    lines = graph_data.split('\n')
 
     for line in lines:
         if len(line) > 1:
