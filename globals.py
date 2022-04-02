@@ -1,9 +1,5 @@
 from time import sleep, time
 
-# Define a function to convert celsius to fahrenheit.
-def celsiusToFahrenheit(celsius):
-    return celsius * 9.0 / 5.0 + 32.0
-
 # Function to run the infinite while loop 
 def runMeasurements(sensor):
     i=0
@@ -13,7 +9,7 @@ def runMeasurements(sensor):
 
     while True:
         temp = sensor.readTempC()
-        print('Thermocouple 1 Temperature: {0:0.3F}*C '.format(temp, celsiusToFahrenheit(temp)))
+        print('Thermocouple 1 Temperature: {0:0.3F}*C ')
         sleep(1.0)
         i+=1
 
