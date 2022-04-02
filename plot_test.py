@@ -13,7 +13,10 @@ plt.legend()
 ax1 = fig.add_subplot(1,1,1)
 
 def animate():
-    x1, y1, x2, y2 = []
+    x1 = []
+    y1 = []
+    x2 = []
+    y2 = []
 
     updateValues('/home/pi/Ciaran/data_files/test1.csv', x1, y1)
     updateValues('/home/pi/Ciaran/data_files/test2.csv', x2, y2)
