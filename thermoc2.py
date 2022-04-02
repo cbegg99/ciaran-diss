@@ -9,7 +9,7 @@ DO  = 26
 sensor = MAX31855.MAX31855(CLK, CS, DO)
 
 # Define file path to save
-file_path1 = "/home/pi/Ciaran/data_files/test2.csv"
+file_path2 = "/home/pi/Ciaran/data_files/test2.csv"
 
 # Function to run the infinite while loop 
 i=0
@@ -24,7 +24,7 @@ while True:
     sleep(1.0)
     i+=1
 
-    file = open(file_path1, "x")
+    file = open(file_path2, "x")
     seconds=time()
     file.write(str(seconds) + "," + str(temp) + "\n")
     file.close()
